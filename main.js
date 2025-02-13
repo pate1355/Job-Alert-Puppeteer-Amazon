@@ -56,7 +56,7 @@ async function sendEmail(subject, text) {
       process.env.NODE_ENV === "production"
         ? process.env.PUPPETEER_EXECUTABLE_PATH
         : puppeteer.executablePath(),
-    headless: true,
+    headless: false,
     args: [
       "--disable-popup-blocking", // Disable popup blocking
       "--disable-notifications", // Disable notifications
@@ -70,7 +70,7 @@ async function sendEmail(subject, text) {
   const page = await browser.newPage();
 
   console.log("Opening job search page...");
-  await page.goto(jobSearchURL, { waitUntil: "networkidle2" });
+  await page.goto(jobSearchURL, { waitUntil: "networkidle2", timeout: 60000 });
 
   let jobFound = false;
 
