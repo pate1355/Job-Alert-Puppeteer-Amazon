@@ -56,7 +56,7 @@ async function sendEmail(subject, text) {
       process.env.NODE_ENV === "production"
         ? process.env.PUPPETEER_EXECUTABLE_PATH
         : puppeteer.executablePath(),
-    headless: false,
+    headless: true,
     args: [
       "--disable-popup-blocking", // Disable popup blocking
       "--disable-notifications", // Disable notifications
