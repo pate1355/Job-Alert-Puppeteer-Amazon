@@ -1,6 +1,5 @@
 const puppeteer = require("puppeteer");
 const nodemailer = require("nodemailer");
-require("dotenv").config();
 
 const locationArr = [
   "Barrhaven, ON",
