@@ -1,5 +1,6 @@
 const puppeteer = require("puppeteer");
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const locationArr = [
   "Barrhaven, ON",
@@ -51,11 +52,19 @@ async function sendEmail(subject, text) {
 
 (async () => {
   const browser = await puppeteer.launch({
+    executablePath:
+      process.env.NODE_ENV === "production"
+        ? process.env.PUPPETEER_EXECUTABLE_PATH
+        : puppeteer.executablePath(),
     headless: true,
     args: [
       "--disable-popup-blocking", // Disable popup blocking
       "--disable-notifications", // Disable notifications
       "--disable-infobars", // Disable information bars
+      "--disable-setuid-sandbox", // Disable setuid sandbox (Linux only)
+      "--no-sandbox", // Disable the sandbox
+      "--single-process", // Enable single process
+      "--no-zygote", // Enable no zygote
     ],
   });
   const page = await browser.newPage();
