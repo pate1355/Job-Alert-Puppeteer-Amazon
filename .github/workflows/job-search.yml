@@ -27,4 +27,4 @@ jobs:
           SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
           PUPPETEER_EXECUTABLE_PATH: ${{ secrets.PUPPETEER_EXECUTABLE_PATH }}
-        run: node main.js # Replace with your actual script filename
+        run: node main.js 
