@@ -2,8 +2,8 @@ name: Amazon Job Search Bot
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Runs every minute
-  workflow_dispatch:  # Allows manual execution
+    - cron: "*/1 * * * *" # Runs every minute
+  workflow_dispatch: # Allows manual execution
 
 jobs:
   run-script:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install dependencies
         run: npm install
@@ -27,4 +27,4 @@ jobs:
           SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
           PUPPETEER_EXECUTABLE_PATH: ${{ secrets.PUPPETEER_EXECUTABLE_PATH }}
-        run: node script.js  # Replace with your actual script filename
+        run: node main.js # Replace with your actual script filename
