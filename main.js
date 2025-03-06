@@ -19,10 +19,9 @@ const locationArr = [
   "Windsor, ON",
   "Ottawa, ON",
   "Brantford, ON",
-  "Fairbanks, AK",
 ];
 
-const jobSearchURL = "https://hiring.amazon.com/app#/jobSearch";
+const jobSearchURL = "https://hiring.amazon.ca/app#/jobSearch";
 
 // Email transporter setup
 const transporter = nodemailer.createTransport({
